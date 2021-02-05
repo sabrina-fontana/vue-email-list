@@ -2,6 +2,10 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <title>vue email list</title>
@@ -9,7 +13,13 @@
   <body>
 
     <div id="app">
-      <div v-for="email in emailsArray">{{email}}</div>
+      Gli indirizzi e-mail sono:
+      <div class="emails-container">
+        <div v-for="(email, index) in emailsArray" class="email">
+        {{email}}<i class="fa fa-times" aria-hidden="true" @click="deleteEmail(index)"></i>
+        </div>
+      </div>
+      <button @click="createEmails">Rigenera elenco</button>
     </div>
 
     <script src="js/script.js" charset="utf-8"></script>
